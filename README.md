@@ -28,4 +28,4 @@
 ### Run App
  * Type in terminal : npm run dev
     
-> - *Note : I can't read data from typescript file, so created JSON file with the same data and more properties to execute updates and delete*
+> - *Note : I can't import data from typescript file, so created JSON file with the same data and more properties to execute updates and delete*
