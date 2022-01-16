@@ -1,14 +1,9 @@
-// import { gql } from '@apollo/client';
 import React, { PureComponent } from 'react';
-// import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CartPage from './components/CartPage';
 import Navbar from './components/Navbar';
 import PLP from './components/PLP';
 import ProductView from './components/ProductView';
-// import products from './data';
-// import { products } from './data';
-// import { addCartProduct, readCartProducts } from './redux/actions';
 import './style/App.css';
 import { Query } from '@apollo/client/react/components/Query';
 import { Product_Query } from './graphql/graphqls';
