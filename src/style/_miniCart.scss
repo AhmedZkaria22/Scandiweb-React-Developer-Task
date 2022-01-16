@@ -1,0 +1,128 @@
+.miniCart-container{
+    display: none;
+    position: absolute;        
+    top: 100%;  
+    right: 8%;
+    width: 25%;
+    padding: 1rem 0.8rem;
+    z-index: 9;
+    background-color: $--c-white;
+    max-height: 80vh;
+    overflow: auto;
+    scroll-behavior: smooth;
+    &::-webkit-scrollbar { width: 5px; }        
+    &::-webkit-scrollbar-track { background: $--c-light; }
+    &::-webkit-scrollbar-thumb { background: $--c-text;     border-radius: 10px; }
+
+    h5{
+        display: flex;    align-items: center;    justify-content: space-between;
+        p{
+            margin-top: 0rem;
+            color: $--c-text;
+            @include fontMixin(14px, 700, 25px);
+            span{
+                font-weight: 500;
+            }
+        }
+        .miniCart-close{
+            color: $--c-icon;    
+            @include fontMixin(14px, 700, 25px);
+        }    
+    }
+    .miniCart-container__item{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 100%;
+        grid-gap: 0rem;
+        margin-bottom: 1.25rem;
+        .miniCart-container__item__col1, .miniCart-container__item__col2{
+            display: flex;   justify-content: space-between;
+        }
+        .miniCart-container__item__col1{
+            align-items: flex-start;
+            flex-direction: column!important;     
+            padding-right: 1rem;
+            p{
+                color: $--c-text;      
+                &:first-of-type{
+                    @include fontMixin(13px, 300, 17px);    
+                }
+                &:last-of-type{
+                    @include fontMixin(13px, 500, 17px);    
+                }
+            }
+            .cartItem-sizes{
+                display: flex;  align-items: center;    flex-direction: row!important;
+                flex-wrap: wrap;
+                button{
+                    height: 1.1rem;
+                    width: fit-content;
+                    display: flex;  align-items: center;    justify-content: center;
+                    background-color: $--c-white;      color: $--c-text;
+                    border: 1px solid $--c-text;            
+                    @include fontMixin(13px, 500, 17px);
+                    margin-right: 0.35rem;
+                    margin-bottom: 0.35rem;       
+                }
+            }
+        }
+        .miniCart-container__item__col2{
+            align-items: center;
+            img{
+                display: block;
+                width: calc(100% - 1.5rem);     height: 110px;
+            }
+            .cartItem-amount{
+                display: flex;  align-items: center;    justify-content: space-between;
+                flex-direction: column!important;                    
+                height: 100%;
+                button{
+                    width: 1rem;  height: 1.1rem;
+                    display: flex;  align-items: center;    justify-content: center;
+                    position: relative;
+                    padding: 0rem;
+                    &::after{
+                        border: 1px solid $--c-text;
+                        @include PseudoMixin(top, 0rem, left, 0rem, $--c-white, $--c-text , 100%, 100%);
+                        @include fontMixin(23px, 300, 17px); 
+                    }
+                    &:first-of-type::after{ content: '+'; }
+                    &:last-of-type::after{ content: '-'; }
+                }
+                p{                
+                    text-align: center;
+                    @include fontMixin(13px, 500, 17px);
+                }
+            }
+        }
+    }
+    .miniCart-container__total{
+        display: flex;  align-items: center;    justify-content: space-between;
+        margin-bottom: 1.25rem;
+        p{
+            color: $--c-text;
+            @include fontMixin(12px, 700, 18px);
+        }
+    }
+    .miniCart-container__btns{
+        display: flex;  align-items: center;    justify-content: space-between;
+        a, button{
+            text-transform: uppercase;
+            color: $--c-text;
+            width: 48%;
+            text-align: center;
+            padding-block: 0.35rem;
+            border: 1px solid;
+            text-decoration: none;
+            @include fontMixin(11px, 600, 20px);
+            &:first-of-type{
+                border-color: $--c-text;     
+                color: $--c-text;    background-color: $--c-white;
+            }
+            &:last-of-type{
+                border-color: $--c-primary;
+                color: $--c-white;    background-color: $--c-primary;
+            }
+        }
+    }
+}

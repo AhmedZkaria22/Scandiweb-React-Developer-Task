@@ -1,0 +1,139 @@
+#navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $--c-white;
+    position: relative;
+    width: 84%;
+    padding-inline: 8%;
+    z-index: 9;
+    .navbar__gender-filter{        
+        display: flex;
+        align-items: center;
+        button{
+            color: $--c-text;                        
+            @include fontMixin(13px, 500, 19.2px);
+            text-align: Center;
+            text-transform: uppercase;
+            padding: 1.2rem 0rem;
+            &:not(:last-of-type){margin-right: 1.5rem;}
+            &:nth-of-type(2){ display: none; }
+            img{ display: block;  object-fit: fill; width: 20px; }
+            &:nth-of-type(n+3){
+                position: relative;
+                &::after{
+                    content: "";
+                    display: none;
+                    @include PseudoMixin(top, calc(100% + 0.16rem), left, -0.5rem, $--c-primary, transparent , calc(100% + 1rem), 0.08rem);
+                }
+            }
+        }
+    }
+    .navbar__home{
+        display: block;
+        text-decoration: none;
+        margin-right: 1rem;
+        img{
+            display: block;
+            width: 20px;
+            height: 20px;
+            object-fit: fill;
+        }
+    }
+    .navbar__checkOut{
+        img{
+            display: block;
+            width: 30px;            
+        }        
+    }
+    .navbar__controls{
+        display: flex;
+        align-items: flex-end;        
+        div{
+            margin-right: 0.5rem;
+            display: flex;
+            align-items: flex-end;
+            span{
+                color: $--c-text;
+                @include fontMixin(14px, 500, 27px);
+            }
+            button{
+                width: 20px;  height: 15px;
+                align-items: center;    justify-content: center;
+                position: relative;
+                padding: 0rem;
+                &::after{
+                    content: '';    
+                    background: {
+                        position: center;
+                        size: 40% 100%;
+                        repeat: no-repeat;
+                        image: url('../assets/images/arrow.png');
+                    };     
+                    @include PseudoMixin(top, 0rem, left, 0rem, none, transparent , 100%, 5px);
+                }
+                &:first-of-type{ display: flex; 
+                    &::after{                     
+                        transform: rotateX(180deg); 
+                    }    
+                }
+                &:last-of-type{ display: none; }
+            }
+        }
+        &>button{
+            padding-inline: 0;
+            position: relative;
+            img{
+                display: block;
+                width: 16px;
+                margin-bottom: 0.2rem;
+            }
+            span{
+                border-radius: 50%;
+                @include fontMixin(0.75rem, 600, 15px);
+                @include PseudoMixin(top, -0.3rem, right, -0.7rem, $--c-text, $--c-white, 16px, 16px);
+            }
+        }
+    }
+
+    @import 'miniCart';
+
+    .currency-menu{
+        display: none;
+        position: absolute;
+        top: 100%;  
+        right: 8%;
+        padding: 0.9rem 0.75rem;
+        z-index: 9;
+        background-color: $--c-white;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-direction: column!important;
+        filter: drop-shadow(0px 4px 25px rgba(168, 172, 176, 0.19));
+        button{
+            padding-right: 1rem;
+            color: $--c-text;
+            text-align: left;
+            @include fontMixin(14px, 500, 27px);
+            &:not(:last-of-type){margin-bottom: 0.8rem;}
+        }
+    }
+    .category-list{
+        display: none;
+        position: absolute;
+        top: 100%;  
+        left: 8%;
+        padding: 0.9rem 0.75rem;
+        z-index: 9;
+        background-color: $--c-white;
+        flex-direction: column!important;
+        filter: drop-shadow(0px 4px 25px rgba(168, 172, 176, 0.19));
+        button{
+            padding-right: 1rem;
+            color: $--c-text;
+            text-align: left;
+            @include fontMixin(14px, 500, 27px);
+            &:not(:last-of-type){margin-bottom: 0.5rem;}
+        }
+    }
+}

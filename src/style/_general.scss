@@ -1,0 +1,83 @@
+// color vars
+$--c-primary: #5ECE7B;
+$--c-text: #1D1F22;
+$--c-icon: #43464E;
+$--c-white: #FFFFFF;
+$--c-black: #000000;
+$--c-light: #8D8F9A;
+
+
+// mixins
+@mixin fontMixin( $fs, $fw, $lh ){
+    font-size: $fs;
+    font-weight: $fw;
+    line-height: $lh;
+}
+
+@mixin PseudoMixin($insV, $insVV, $insH, $insHV, $back, $clr, $wd, $ht){
+    position: absolute;   
+    #{$insV}: $insVV;     #{$insH}: $insHV;
+    width: $wd;    height: $ht;
+    background-color: $back;      color: $clr;
+}
+
+
+// classes
+.activeGender{
+    color: $--c-primary!important; 
+    &::after{ display: block!important; }
+}
+
+.activeSize{
+    background-color: $--c-text!important;
+    color: $--c-white!important;
+    border: 1px solid $--c-text!important;
+}
+
+.activeColor{
+    position: relative;
+    &::after{
+        background-color: inherit!important;
+    }
+}
+
+.activeImg{ display: block; }
+.disable-img{ display: none; }
+
+.disable-size{
+    color: #a6a6a6!important;  border: 1px solid #a6a6a6!important;
+}
+
+.disable-decre{
+    opacity: 0.5;   cursor: default;
+}
+
+.available-size{
+    background-color: $--c-white!important;
+    color: $--c-text!important;
+    border: 1px solid $--c-text!important;
+}
+
+.disable-product{
+    opacity: 0.5;
+    position: relative;
+    &::after{
+        content: 'out of stock';
+        max-width: 100%;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include fontMixin(18px, 500, 21px);
+        @include PseudoMixin(top, 0rem, left, 0rem, transparent, #2a2b2e, 100%, 53vh);
+    }
+    &::before{ display: none!important; }
+    img{
+        display: block;
+        object-fit: fill;
+        width: 100%;
+        max-width: 100%;
+        height: 53vh;
+        margin-bottom: 1rem;
+    }
+}
